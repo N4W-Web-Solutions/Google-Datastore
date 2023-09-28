@@ -33,5 +33,8 @@
   "homepage": "https://github.com/N4W-Web-Solutions/Google-Datastore#readme",
   "dependencies": {
     "@google-cloud/datastore": "^8.1.0"
+  },
+  "publishConfig": {
+    "@N4W-Web-Solutions:registry": "https://npm.pkg.github.com"
   }
 }
