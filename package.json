@@ -1,6 +1,6 @@
 {
   "name": "@N4W-Web-Solutions/gcp-datastore",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Using normal, GQL or GQL Aggregation to query Google Datastore",
   "main": "index.js",
   "scripts": {
