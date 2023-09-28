@@ -24,20 +24,24 @@ class GCPDatastore {
      * @param {Array} params 
      */
     async gqlQuery (sql, bindings) {
-        const datastoreClient = new this.#DatastoreClient({
-            projectId: this.#projectId,
-            keyFilename: this.#keyFilename
-        });
+        try {
+            const datastoreClient = new this.#DatastoreClient({
+                projectId: this.#projectId,
+                keyFilename: this.#keyFilename
+            });
 
-        const [ operation ] = await datastoreClient.runQuery({
-            projectId: `${this.#projectId}`,
-            gqlQuery: {
-                queryString: `${sql}`,
-                namedBindings: bindings
-            }
-        })
+            const [ operation ] = await datastoreClient.runQuery({
+                projectId: `${this.#projectId}`,
+                gqlQuery: {
+                    queryString: `${sql}`,
+                    namedBindings: bindings
+                }
+            })
 
-        return operation
+            return operation
+        } catch (e) {
+            return e
+        }
     }
 
     /**
@@ -46,20 +50,24 @@ class GCPDatastore {
      * @param {Array} params 
      */
     async gqlAggregationQuery (sql, bindings) {
-        const datastoreClient = new this.#DatastoreClient({
-            projectId: this.#projectId,
-            keyFilename: this.#keyFilename
-        });
+        try {
+            const datastoreClient = new this.#DatastoreClient({
+                projectId: this.#projectId,
+                keyFilename: this.#keyFilename
+            });
 
-        const [ operation ] = await datastoreClient.runAggregationQuery({
-            projectId: `${this.#projectId}`,
-            gqlQuery: {
-                queryString: `${sql}`,
-                namedBindings: bindings
-            }
-        })
+            const [ operation ] = await datastoreClient.runAggregationQuery({
+                projectId: `${this.#projectId}`,
+                gqlQuery: {
+                    queryString: `${sql}`,
+                    namedBindings: bindings
+                }
+            })
 
-        return operation
+            return operation
+        } catch (e) {
+            return e
+        }
     }
 
     /**
@@ -73,38 +81,42 @@ class GCPDatastore {
      * @returns 
      */
     async  query (kind, filters, orderby, sort, start, limit) {
-        const datastore = new this.#Datastore({
-            projectId: this.projectId,
-            keyFilename: this.keyFilename
-        });
+        try {
+            const datastore = new this.#Datastore({
+                projectId: this.projectId,
+                keyFilename: this.keyFilename
+            });
 
-        const queryDS = datastore.createQuery(kind)
+            const queryDS = datastore.createQuery(kind)
 
-        if (isNaN(limit)) limit = 1
-        queryDS.limit(limit)
+            if (isNaN(limit)) limit = 1
+            queryDS.limit(limit)
 
-        let tmpFilters = []
-        if (filters && filters.length > 0) {
-            filters.forEach((f) => {
-                if (f.field && f.value) {
-                    f.operator = (f.operator) ? f.operator : '='
-                    tmpFilters.push(queryDS.filter(f.field, f.operator, f.value))
-                }
-            })
+            let tmpFilters = []
+            if (filters && filters.length > 0) {
+                filters.forEach((f) => {
+                    if (f.field && f.value) {
+                        f.operator = (f.operator) ? f.operator : '='
+                        tmpFilters.push(queryDS.filter(f.field, f.operator, f.value))
+                    }
+                })
+            }
+            queryDS.filters = tmpFilters
+
+            if (orderby) {
+                queryDS.order(orderby, {
+                    descending: (sort === 'desc') ? true : false
+                })
+            }
+
+            if (start) queryDS.start(start)
+
+            
+            const operation = await datastore.runQuery(queryDS)
+            return operation
+        } catch (e) {
+            return e
         }
-        queryDS.filters = tmpFilters
-
-        if (orderby) {
-            queryDS.order(orderby, {
-                descending: (sort === 'desc') ? true : false
-            })
-        }
-
-        if (start) queryDS.start(start)
-
-        
-        const operation = await datastore.runQuery(queryDS)
-        return operation
     }
 }
 
