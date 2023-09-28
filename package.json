@@ -1,0 +1,37 @@
+{
+  "name": "@N4W-Web-Solutions/gcp-datastore",
+  "version": "1.0.0",
+  "description": "Using normal, GQL or GQL Aggregation to query Google Datastore",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N4W-Web-Solutions/Google-Datastore.git"
+  },
+  "keywords": [
+    "google",
+    "datastore",
+    "gql",
+    "node",
+    "javascript",
+    "query",
+    "insert",
+    "update",
+    "delete",
+    "get",
+    "upsert",
+    "select",
+    "sql"
+  ],
+  "author": "Piero Ribeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N4W-Web-Solutions/Google-Datastore/issues"
+  },
+  "homepage": "https://github.com/N4W-Web-Solutions/Google-Datastore#readme",
+  "dependencies": {
+    "@google-cloud/datastore": "^8.1.0"
+  }
+}
