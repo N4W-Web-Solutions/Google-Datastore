@@ -14,6 +14,17 @@ npm i @N4W-Web-Solutions/gcp-datastore@1.0.0
 
 ```javascript
 
+/**
+ * @type Filter = {field, operator, value}
+ * 
+ * @param {string} kind 
+ * @param {Array<Filter>} filters 
+ * @param {string} orderby 
+ * @param {string} sort 
+ * @param {string} start 
+ * @param {number} limit 
+ * @returns 
+*/
 const gcpDatastore = require("@N4W-Web-Solutions/gcp-datastore")
 const gcpDS = new gcpDatastore({projectId: '[PROJECT_ID]', keyFilename: '[/PATH/TO/KEYFILE.json]'})
 
@@ -33,6 +44,23 @@ Pagination information in ``res[1]``
 
 ```javascript
 
+/**
+ * @type Bindings = {
+ *      varName: {
+ *          value: {
+ *              (integerValue | stringValue | booleanValue): "value" | 676 | true
+ *      },
+ *      varName: {
+ *          value: {
+ *              (integerValue | stringValue | booleanValue): "value" | 676 | true
+ *      },
+ *      ...
+ * }
+ * 
+ * @param {string} sql 
+ * @param {Bindings} bindings
+ * @returns 
+*/
 const gcpDatastore = require("@N4W-Web-Solutions/gcp-datastore")
 const gcpDS = new gcpDatastore({projectId: '[PROJECT_ID]', keyFilename: '[/PATH/TO/KEYFILE.json]'})
 
@@ -40,7 +68,7 @@ async function run () {
     const entities = await ds.gqlQuery("SELECT * FROM `[KIND_NAME]` LIMIT @limit", {
         limit: {
             value: {
-                integerValue: 1
+                integerValue: 786
             }
         }
     })
@@ -57,6 +85,23 @@ Results in ``entities.batch.entityResults``
 
 ```javascript
 
+/**
+ * @type Bindings = {
+ *      varName: {
+ *          value: {
+ *              (integerValue | stringValue | booleanValue): "value" | 676 | true
+ *      },
+ *      varName: {
+ *          value: {
+ *              (integerValue | stringValue | booleanValue): "value" | 676 | true
+ *      },
+ *      ...
+ * }
+ * 
+ * @param {string} sql 
+ * @param {Bindings} bindings
+ * @returns 
+*/
 const gcpDatastore = require("@N4W-Web-Solutions/gcp-datastore")
 const gcpDS = new gcpDatastore({projectId: '[PROJECT_ID]', keyFilename: '[/PATH/TO/KEYFILE.json]'})
 
