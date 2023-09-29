@@ -7,7 +7,7 @@ GCP Datastore is a library for querying Google Datastore, naturally (default) or
 Use the package manager [npm](https://docs.npmjs.com/about-npm) to install GCP Datastore.
 
 ```bash
-npm i @N4W-Web-Solutions/gcp-datastore@1.0.0
+npm i @n4w-web-solutions/gcp-datastore@1.0.1
 ```
 
 ## Usage dafault Query
