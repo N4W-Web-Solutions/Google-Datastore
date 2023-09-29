@@ -1,5 +1,5 @@
 {
-  "name": "gcp-datastore",
+  "name": "@N4W-Web-Solutions/gcp-datastore",
   "version": "1.0.1",
   "description": "Using normal, GQL or GQL Aggregation to query Google Datastore",
   "main": "index.js",
@@ -35,6 +35,6 @@
     "@google-cloud/datastore": "^8.1.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@N4W-Web-Solutions"
+    "@N4W-Web-Solutions:registry": "https://npm.pkg.github.com"
   }
 }
