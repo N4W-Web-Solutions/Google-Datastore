@@ -6,6 +6,20 @@
 
 GCP Datastore is a library for querying Google Datastore, naturally (default) or through GQL (Google Query Language) or even with GQL Aggregation
 
+## Setup
+
+1. Access the link below and generate your access code with "Read Package Permission":
+https://github.com/settings/tokens
+2. Edit your .npmrc file and add the following lines with your shortcode generated above:
+```bash
+vi ~/.npmrc
+```
+
+```bash
+//npm.pkg.github.com/:_authToken=YOUR_ACCESS_TOKEN
+@n4w-web-solutions:registry=https://npm.pkg.github.com/
+```
+
 ## Installation
 
 Use the package manager [npm](https://docs.npmjs.com/about-npm) to install GCP Datastore.
