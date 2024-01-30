@@ -1,9 +1,5 @@
 # GCP Datastore
 
-[![npm version][npmimg]][npm]
-[![Downloads][downloadsimg]][downloads]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
-
 GCP Datastore is a library for querying Google Datastore, naturally (default) or through GQL (Google Query Language) or even with GQL Aggregation
 
 ## Setup
