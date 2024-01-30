@@ -25,7 +25,7 @@ vi ~/.npmrc
 Use the package manager [npm](https://docs.npmjs.com/about-npm) to install GCP Datastore.
 
 ```bash
-npm i @n4w-web-solutions/gcp-datastore@1.0.1
+npm i @n4w-web-solutions/gcp-datastore@1.0.2
 ```
 
 ## Usage dafault Query
